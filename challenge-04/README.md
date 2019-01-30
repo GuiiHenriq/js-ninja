@@ -121,9 +121,9 @@ carro.adicionarPassageiros = function(passageiros) {
 
   if (carro.quantidadePessoa === 5) {
     return "O carro já está lotado!";
-  } else if (passageiros > limiteDePessoas) {
+  } else if (passageiros > limiteDePessoas && limiteDePessoas > 1) {
     return "Só cabem mais " + limiteDePessoas + " pessoas!";
-  } else if (limiteDePessoas === 1) {
+  } else if (passageiros > limiteDePessoas && limiteDePessoas === 1) {
     return "Só cabem mais " + limiteDePessoas + " pessoa!";
   } else {
     carro.quantidadePessoa += passageiros;
@@ -154,23 +154,23 @@ carro.mudarCor("Verde Musgo");
 carro.obterCor(); //Verde Musgo
 
 // Qual a marca e modelo do carro?
-carro.obterMarcaModelo();
+carro.obterMarcaModelo(); // "Esse carro é um Ferrari La Italia"
 
 // Adicione 2 pessoas no carro.
 carro.adicionarPassageiros(2);
 
 // Adicione mais 4 pessoas no carro.
-carro.adicionarPassageiros(4); //"Só cabem mais 0 pessoas!"
+carro.adicionarPassageiros(4); //"Só cabem mais 3 pessoas!"
 
 // Faça o carro encher.
-?
+carro.adicionarPassageiros(3);
 
 // Tire 4 pessoas do carro.
-?
+carro.quantidadePessoa = 1;
 
 // Adicione 10 pessoas no carro.
-?
+carro.adicionarPassageiros(10); //"Só cabem mais 4 pessoas!"
 
 // Quantas pessoas temos no carro?
 ?
-```
+carro.quantidadePessoa; // 1
