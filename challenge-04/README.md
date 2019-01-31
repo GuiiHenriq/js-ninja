@@ -8,36 +8,35 @@ equivalente booleano para o valor passado no argumento for `true`, ou `false`
 para o contrário.
 */
 var isTruthy = function(x) {
-  if (x === 0 || x === -0 || x === '' || x === undefined || x === NaN || x === null || x === false) {
-    return false;
-  } else {
+  if (x) {
     return true;
   }
-}
+  return false;
+};
 
 // Invoque a função criada acima, passando todos os tipos de valores `falsy`.
-isTruthy(0)
-isTruthy(-0)
-isTruthy()
-isTruthy(undefined)
-isTruthy(NaN)
-isTruthy(null)
-isTruthy(false)
+isTruthy(0);
+isTruthy(-0);
+isTruthy();
+isTruthy(undefined);
+isTruthy(NaN);
+isTruthy(null);
+isTruthy(false);
 
 
 /*
 Invoque a função criada acima passando como parâmetro 10 valores `truthy`.
 */
-isTruthy(1)
-isTruthy('verdadeiro')
-isTruthy(true)
-isTruthy('verdade')
-isTruthy(20)
-isTruthy(5)
-isTruthy(30)
-isTruthy(4)
-isTruthy(11)
-isTruthy(6)
+isTruthy(1);
+isTruthy('verdadeiro');
+isTruthy(true);
+isTruthy('verdade');
+isTruthy(20);
+isTruthy(5);
+isTruthy(30);
+isTruthy(40 * 2);
+isTruthy(1 + 1);
+isTruthy(function() {});
 
 /*
 Declare uma variável chamada `carro`, atribuindo à ela um objeto com as
@@ -54,13 +53,13 @@ seguintes propriedades (os valores devem ser do tipo mostrado abaixo):
 var carro = {
   marca: 'Ferrari',
   modelo: 'La Italia',
-  placa: 'GJJ-6661',
+  placa: 'AAA-3232',
   ano: 100,
   cor: 'Amarelo',
   quantasPortas: 4,
   assentos: 5,
   quantidadePessoa: 0,
-}
+};
 
 /*
 Crie um método chamado `mudarCor` que mude a cor do carro conforme a cor
@@ -119,7 +118,7 @@ citado acima, no lugar de "pessoas".
 carro.adicionarPassageiros = function(passageiros) {
   var limiteDePessoas = carro.assentos - carro.quantidadePessoa;
 
-  if (carro.quantidadePessoa === 5) {
+  if (carro.quantidadePessoa === carro.assentos) {
     return "O carro já está lotado!";
   } else if (passageiros > limiteDePessoas && limiteDePessoas > 1) {
     return "Só cabem mais " + limiteDePessoas + " pessoas!";
@@ -129,7 +128,7 @@ carro.adicionarPassageiros = function(passageiros) {
     carro.quantidadePessoa += passageiros;
     return "Já temos " + carro.quantidadePessoa + " pessoas no carro!";
   }
-}
+};
 
 /*
 Agora vamos verificar algumas informações do carro. Para as respostas abaixo,
@@ -172,5 +171,4 @@ carro.quantidadePessoa = 1;
 carro.adicionarPassageiros(10); //"Só cabem mais 4 pessoas!"
 
 // Quantas pessoas temos no carro?
-?
 carro.quantidadePessoa; // 1
