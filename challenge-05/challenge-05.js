@@ -21,7 +21,7 @@ segundo, um número. A função deve retornar o valor de um índice do array que
 no primeiro parâmetro. O índice usado para retornar o valor, deve ser o número passado no
 segundo parâmetro.
 */
-function teste (x, y) {
+function arrayParam (x, y) {
     return x[y];
 }
 
@@ -34,7 +34,7 @@ var arrayValues = ['string', 30, false, undefined, NaN];
 Invoque a função criada acima, fazendo-a retornar todos os valores do último
 array criado.
 */
-console.log(arrayValues[2]);
+console.log(arrayParam(arrayValues, 0));
 
 /*
 Crie uma função chamada `book`, que recebe um parâmetro, que será o nome do
@@ -51,10 +51,28 @@ propriedades:
 os livros.
 */
 function book(name) {
-    var obj = {
-        
+    var books = {
+        htmlecss: {
+            quantidadePaginas: 267,
+            autor: 'Jon Duckett',
+            editora: 'Alta Books'
+        },
+
+        javascript: {
+            quantidadePaginas: 630,
+            autor: 'Jon Duckett',
+            editora: 'Alta Books'
+        },
+
+        sql: {
+            quantidadePaginas: 450,
+            autor: 'Michael',
+            editora: 'Campus'
+        }
     };
-}
+
+    return books.name;
+};
 
 /*
 Usando a função criada acima, imprima o objeto com todos os livros.
