@@ -57,45 +57,52 @@ function book(name) {
             autor: 'Jon Duckett',
             editora: 'Alta Books'
         },
-
         javascript: {
             quantidadePaginas: 630,
             autor: 'Jon Duckett',
             editora: 'Alta Books'
         },
-
         sql: {
             quantidadePaginas: 450,
             autor: 'Michael',
             editora: 'Campus'
         }
     };
-
-    return books.name;
+    
+    if (name === undefined) {
+        return books
+    }
+    return books.name
 };
 
 /*
 Usando a função criada acima, imprima o objeto com todos os livros.
 */
-// ?
+book();
 
 /*
 Ainda com a função acima, imprima a quantidade de páginas de um livro qualquer,
 usando a frase:
 "O livro [NOME_DO_LIVRO] tem [X] páginas!"
 */
-// ?
+function paginasBook() {
+    return "O livro " + book(htmlecss) + " tem " + book(htmlecss.quantidadePaginas) + " páginas!";
+}
 
 /*
 Ainda com a função acima, imprima o nome do autor de um livro qualquer, usando
 a frase:
 "O autor do livro [NOME_DO_LIVRO] é [AUTOR]."
 */
-// ?
+function autorBook() {
+    return "O autor do livro " + book(htmlecss) + " é " + book(htmlecss.autor) + " .";
+}
 
 /*
 Ainda com a função acima, imprima o nome da editora de um livro qualquer, usando
 a frase:
 "O livro [NOME_DO_LIVRO] foi publicado pela editora [NOME_DA_EDITORA]."
 */
-// ?
+function editoraBook() {
+    return "O livro " + book(htmlecss) + " foi publicado pela editora " + book(htmlecss.editora) + " .";
+}
