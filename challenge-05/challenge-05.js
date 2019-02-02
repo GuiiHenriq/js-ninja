@@ -13,7 +13,7 @@ function arrayReturn(array) {
 /*
 Imprima o segundo índice do array retornado pela função criada acima.
 */
-console.log(arrayReturn(myArray[1]));
+console.log(arrayReturn(myArray)[1]);
 
 /*
 Crie uma função que receba dois parâmetros: o primeiro, um array de valores; e o
@@ -28,13 +28,17 @@ function arrayParam (x, y) {
 /*
 Declare uma variável que recebe um array com 5 valores, de tipos diferentes.
 */
-var arrayValues = ['string', 30, false, undefined, NaN];
+var arrayValues = ['JS Ninja', 30, false, [3, 2, 1], { b: 5}];
 
 /*
 Invoque a função criada acima, fazendo-a retornar todos os valores do último
 array criado.
 */
 console.log(arrayParam(arrayValues, 0));
+console.log(arrayParam(arrayValues, 1));
+console.log(arrayParam(arrayValues, 2));
+console.log(arrayParam(arrayValues, 3));
+console.log(arrayParam(arrayValues, 4));
 
 /*
 Crie uma função chamada `book`, que recebe um parâmetro, que será o nome do
@@ -50,59 +54,53 @@ propriedades:
 - Se o parâmetro não for passado, a função deve retornar o objeto com todos
 os livros.
 */
-function book(name) {
+function book(nameBook) {
     var books = {
-        htmlecss: {
+        'HTML & CSS': {
             quantidadePaginas: 267,
             autor: 'Jon Duckett',
             editora: 'Alta Books'
         },
-        javascript: {
+        'Javascript & jQuery': {
             quantidadePaginas: 630,
             autor: 'Jon Duckett',
             editora: 'Alta Books'
         },
-        sql: {
-            quantidadePaginas: 450,
-            autor: 'Michael',
-            editora: 'Campus'
+        'Vue.js': {
+            quantidadePaginas: 174,
+            autor: 'Caio Incau',
+            editora: 'Casa do Código'
         }
     };
     
-    if (name === undefined) {
-        return books
-    }
-    return books.name
-};
+    return !nameBook ? books : books[nameBook];
+    // Mesma coisa que utilizar IF e ELSE
+    // Se nameBook for falso (! = verificar se é falso) o comando "?" indica que deve retornar o objeto "books", e o comando ":" é similar ao ELSE, então se nameBook NÃO for falso, retorna o "books[nameBook]"
+}
 
 /*
 Usando a função criada acima, imprima o objeto com todos os livros.
 */
-book();
+console.log(book());
 
 /*
 Ainda com a função acima, imprima a quantidade de páginas de um livro qualquer,
 usando a frase:
 "O livro [NOME_DO_LIVRO] tem [X] páginas!"
 */
-function paginasBook() {
-    return "O livro " + book(htmlecss) + " tem " + book(htmlecss.quantidadePaginas) + " páginas!";
-}
+var bookName = 'Javascript & jQuery';
+console.log('O livro ' + bookName + ' tem ' + book(bookName).quantidadePaginas + ' páginas!');
 
 /*
 Ainda com a função acima, imprima o nome do autor de um livro qualquer, usando
 a frase:
 "O autor do livro [NOME_DO_LIVRO] é [AUTOR]."
 */
-function autorBook() {
-    return "O autor do livro " + book(htmlecss) + " é " + book(htmlecss.autor) + " .";
-}
+console.log('O autor do livro ' + bookName + ' é ' + book(bookName).autor + '.');
 
 /*
 Ainda com a função acima, imprima o nome da editora de um livro qualquer, usando
 a frase:
 "O livro [NOME_DO_LIVRO] foi publicado pela editora [NOME_DA_EDITORA]."
 */
-function editoraBook() {
-    return "O livro " + book(htmlecss) + " foi publicado pela editora " + book(htmlecss.editora) + " .";
-}
+console.log('O livro ' + bookName + ' foi publicado pela editora ' + book(bookName).editora + '.');
