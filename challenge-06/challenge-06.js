@@ -32,12 +32,11 @@ Crie uma função chamada `showTeamPosition` com as seguintes características:
     - Se não houver time para a posição passada, deve retornar a mensagem:
     "Não temos a informação do time que está nessa posição."
 */
-function showTeamPosition(x) {
-    let soma = x + 1;
-    if (teams[x] === undefined) {
+function showTeamPosition(position) {
+    if (position < 1 || position > 5) {
         return 'Não temos a informação do time que está nessa posição.';
     }
-    return 'O time que está em ' + soma + ' lugar é o ' + teams[x] + '.';
+    return 'O time que está em ' + position + '° lugar é o ' + teams[position - 1] + '.';
 }
 
 /*
@@ -54,7 +53,7 @@ Mostre os números de 20 a 30 no console (inclusive o 30), usando a estrutura de
 repetição "while".
 */
 let counter = 20;
-while(counter < 31) {
+while(counter <= 30) {
     console.log(counter++);
 }
 
@@ -71,25 +70,27 @@ Crie uma função chamada `convertToHex`, com as seguintes características:
     "Não temos o equivalente hexadecimal para [COR]."
 */
 function convertToHex(color) {
+    let codigoHexa;
     switch(color) {
         case 'red':
-            console.log('#ff0000');
-        break;
+            codigoHexa = '#ff0000';
+            break;
         case 'green':
-            console.log('#008000');
-        break;
+            codigoHexa = '#008000';
+            break;
         case 'black':
-            console.log('#000000');
-        break;
+            codigoHexa = '#000000';
+            break;
         case 'white':
-            console.log('#FFFFFF');
-        break;
+            codigoHexa = '#FFFFFF';
+            break;
         case 'blue':
-            console.log('#0000ff');
-        break;
+            codigoHexa = '#0000ff';
+            break;
         default:
-            console.log('Não temos o equivalente hexadecimal para ' + color + '.');
+            return 'Não temos o equivalente hexadecimal para ' + color + '.';
     }
+    return 'O hexadecimal para a cor ' + color + ' é ' + codigoHexa + '.'
 }
 
 /*
